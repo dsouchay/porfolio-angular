@@ -1,0 +1,83 @@
+@use '../abstratcs' as *;
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$personal-primary: mat.define-palette(mat.$indigo-palette);
+$personal-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$personal-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$personal-theme: mat.define-light-theme((
+  color: (
+    primary: $personal-primary,
+    accent: $personal-accent,
+    warn: $personal-warn,
+  )
+));
+.mat-yellow{
+  &.mat-flat-button, &.mat-raised-button, &.mat-fab, &.mat-mini-fab{
+    background-color: $yellow;
+  }
+}
+.mat-gitlab{
+  &.mat-flat-button, &.mat-raised-button, &.mat-fab, &.mat-mini-fab{
+    background-color: #f15339;
+  }
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($personal-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+.mat-toolbar{
+  &.mat-primary{
+    background-color: rgba(0,0,0,.5);
+  }
+  &+ mat-sidenav-container{
+    margin-top: -64px;
+    mat-sidenav{
+      margin-top: 64px;
+    }
+  }
+}
+.afg-bar{
+  position: relative;
+  overflow: initial!important;
+  &:after{
+    content: attr(aria-valuenow) '%';
+    position: absolute;
+    top: rem(-20); right: 0; color: var(--color-black-800);
+  }
+  &.mat-progress-bar .mat-progress-bar-fill{
+    transition: transform 1s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    transition-delay: 500ms;
+  }
+  .mat-progress-bar-fill::after{
+    background-color: var(--color-chart);
+  }
+  .mat-progress-bar-buffer{
+    background-color: rgba($yellow, .25);
+  }
+  .mat-progress-bar-background{
+    fill: rgba($yellow, .25);
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

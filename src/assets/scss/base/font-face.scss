@@ -1,0 +1,39 @@
+@use '../abstratcs' as *;
+
+@each $key, $val in $theme-fonts{
+  @font-face {
+    font-family: 'Ibm Flex Sans';
+    src: url('#{$ibm-dir}/IBMPlexSans-#{$key}.ttf') format('truetype');
+    font-weight: $val;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+
+//@font-face {
+//  font-family: 'Font Awesome';
+//  src: url('#{$fontawesome-dir}/fa-brands-400.woff2') format('woff2'),
+//       url('#{$fontawesome-dir}/fa-brands-400.ttf') format('truetype');
+//  font-weight: 500;
+//  font-style: normal;
+//  font-display: block;
+//}
+
+@font-face {
+  font-family: 'Font Awesome';
+  src: url('#{$fontawesome-dir}/fa-regular-400.woff2') format('woff2'),
+  url('#{$fontawesome-dir}/fa-regular-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+//@font-face {
+//  font-family: 'Font Awesome';
+//  src: url('#{$fontawesome-dir}/fa-solid-900.woff2') format('woff2'),
+//       url('#{$fontawesome-dir}/fa-solid-900.ttf') format('truetype');
+//  font-weight: 900;
+//  font-style: normal;
+//  font-display: block;
+//}

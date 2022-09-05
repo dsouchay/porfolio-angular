@@ -1,0 +1,28 @@
+<mat-card class="grid grid__2col">
+  <div>
+    <mat-card-title>About me</mat-card-title>
+    <mat-card-content>
+      <ul class="afg-original">
+        <ng-container *ngFor="let about of (vT$.about | async)">
+          <li [innerHTML]="about"></li>
+        </ng-container>
+      </ul>
+      <p [innerHTML]="vT$.about_text|async"></p>
+    </mat-card-content>
+  </div>
+  <div>
+    <mat-card-title>Basic Information</mat-card-title>
+    <mat-card-content>
+      <ul class="list">
+        <ng-container *ngFor="let bInfo of (vT$.basic_information|async)">
+          <li>
+            <ul class="grid grid__2col">
+              <li [innerHTML]="bInfo?.label"></li>
+              <li [innerHTML]="bInfo?.value"></li>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </mat-card-content>
+  </div>
+</mat-card>

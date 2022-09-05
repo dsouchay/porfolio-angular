@@ -1,0 +1,302 @@
+@use '../abstratcs' as *;
+
+[role=afg-modules]{
+  .afg-table-material{
+    width: 100%;
+    font-family: var(--font-family-ibm);
+    font-weight: var(--font-weight-regular);
+    &:not(:last-of-type){
+      margin-bottom: rem(24);
+    }
+    &__link{
+      cursor: pointer;
+    }
+
+    //table thead
+    .mat-header{
+      &-cell{
+        color: var(--color-black-400);
+        border-bottom: 0;
+        padding: rem(5) rem(9);
+        text-align: right;
+        &:first-of-type{
+          text-align: left;
+          padding-left: 0;
+        }
+        &--left{
+          text-align: left;
+          .mat-sort-header-container{
+            justify-content: flex-start;
+          }
+        }
+        &--nopadding{
+          padding: 0;
+          padding-left: rem(9);
+        }
+        &--arrow{
+          max-width: 0px;
+        }
+      }
+      &-row{
+        height: auto;
+      }
+    }
+
+    //table body
+    .mat-row{
+      height: auto;
+      .mat-cell{
+        text-align: right;
+        padding: rem(6) rem(9);
+        color: var(--color-black);
+        &:first-of-type{
+          padding-left: 0;
+          color: var(--color-black-400);
+          text-align: left;
+          min-width: 120px;
+        }
+        &--muted{
+          color: var(--color-black-400);
+        }
+        &--left{
+          text-align: left;
+        }
+        &--nopadding{
+          padding: 0;
+          padding-left: rem(9);
+        }
+        &--arrow{
+          max-width: 20px;
+        }
+      }
+    }
+    .mat-sort-header-container{
+      justify-content: flex-end;
+    }
+    &__link{
+      cursor: pointer;
+    }
+  }
+  //.afg-table-material{
+  //  width: 100%;
+  //  //thead
+  //  .mat-header-row{
+  //    vertical-align: baseline;
+  //  }
+  //  .mat-header-cell{
+  //    padding: rem(10) rem(5);
+  //    background-color: var(--gray-200);
+  //    color: var(--dark);
+  //    font-weight: var(--font-weight-Bold);
+  //    text-align: right;
+  //    vertical-align: top;
+  //    &--middle{
+  //      vertical-align: middle;
+  //    }
+  //    &:first-child {
+  //      text-align: left;
+  //      .afg-table-material__nested {
+  //        justify-content: flex-start;
+  //      }
+  //      .mat-sort-header-container{
+  //        justify-content: flex-end;
+  //      }
+  //    }
+  //    &:first-of-type{
+  //      border-top-left-radius: rem(10);
+  //      padding-left: rem(10);
+  //      text-align: left;
+  //      //.mat-sort-header-container{
+  //      //  justify-content: flex-start;
+  //      //}
+  //      //.mat-sort-header-content{
+  //      //  text-align: left;
+  //      //}
+  //      //.afg-table-material__nested{
+  //      //  justify-content: flex-start;
+  //      //}
+  //    }
+  //
+  //    &:last-of-type{
+  //      border-top-right-radius: rem(10);
+  //    }
+  //
+  //    .mat-sort-header-container{
+  //      display: inline-flex;
+  //      flex-direction: row-reverse;
+  //      align-items: normal;
+  //      //justify-content: flex-end;
+  //    }
+  //
+  //    .mat-sort-header-content{
+  //      display: block;
+  //      text-align: right;
+  //    }
+  //
+  //    &--center{
+  //      text-align: center !important;
+  //    }
+  //
+  //    &--left{
+  //      text-align: left;
+  //      .mat-sort-header-container{
+  //        // justify-content: flex-start;
+  //      }
+  //      .mat-sort-header-content{
+  //        text-align: left;
+  //      }
+  //    }
+  //
+  //  }
+  //
+  //  .mat-header-cell--alt{
+  //    &:first-of-type{
+  //      padding-left: 0%;
+  //    }
+  //  }
+  //
+  //  &__link{
+  //    color: var(--primary);
+  //    cursor: pointer;
+  //    &:hover{
+  //      color: darken(#B7313D, 15%);
+  //    }
+  //  }
+  //
+  //  &__nested{
+  //    display: flex;
+  //    justify-content: flex-end;
+  //    font-weight: var(--font-weight-Regular);
+  //    &--left{
+  //      justify-content: flex-start;
+  //    }
+  //    &-item{
+  //      display: flex;
+  //      align-items: center;
+  //      //justify-content: center;
+  //      justify-content: flex-end;
+  //      font-size: rem(11);
+  //      &:not(:last-child){
+  //        &:after{
+  //          content: '';
+  //          width: rem(1);
+  //          height: 100%;
+  //          display: inline-block;
+  //          margin-left: rem(5);
+  //          margin-right: rem(5);
+  //          background-color: var(--dark);
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //  //tbody
+  //  .mat-cell{
+  //    padding: rem(5);
+  //    text-align: right;
+  //    &--center{
+  //      text-align: center !important;
+  //    }
+  //    &--left{
+  //      text-align: left !important;
+  //      .afg-table-material__nested{
+  //        justify-content: flex-start !important;
+  //      }
+  //    }
+  //    &--strech{
+  //      width: 1%;
+  //    }
+  //    //&:not(:first-child){
+  //    //  text-align: right;
+  //    //}
+  //    &:first-of-type{
+  //      padding-left: rem(10);
+  //      text-align: left;
+  //      .afg-table-material__nested {
+  //        justify-content: flex-start;
+  //      }
+  //    }
+  //    &:first-child {
+  //      text-align: left;
+  //      .afg-table-material__nested {
+  //        justify-content: flex-start;
+  //      }
+  //    }
+  //  }
+  //  &.afg-table-search {
+  //    .mat-header-cell{
+  //      background-color: transparent !important;
+  //      border-bottom-color: rgba(0, 0, 0, 0.52);
+  //    }
+  //  }
+  //}
+
+
+  //// Icon-arrow-order-table
+  //
+  //.mat-sort-header-arrow[style] {
+  //  // Hide default arrow stem
+  //  .mat-sort-header-stem {
+  //    display: none;
+  //  }
+  //  &:after{
+  //    font-family: var(--font-family-fontello)!important;
+  //    font-style: normal;
+  //    font-weight: normal;
+  //
+  //    display: inline-block;
+  //    text-decoration: inherit;
+  //    width: 1em;
+  //    text-align: center;
+  //
+  //    font-variant: normal;
+  //    text-transform: none;
+  //    line-height: 1em;
+  //
+  //    -webkit-font-smoothing: antialiased;
+  //    -moz-osx-font-smoothing: grayscale;
+  //
+  //    content: '\e80b'!important; cursor: pointer; font-size: 0.875rem;
+  //  }
+  //  .mat-sort-header-indicator {
+  //    opacity: 1;
+  //    color: black;
+  //    font-weight: bold;
+  //
+  //    // Hide default arrow as its composed of left, right and middle
+  //    .mat-sort-header-pointer-left, .mat-sort-header-pointer-right, .mat-sort-header-pointer-middle  {
+  //      display: none;
+  //    }
+  //  }
+  //}
+  //
+  //// My custom ascending arrow
+  //[aria-sort="descending"] {
+  //  .mat-sort-header-arrow {
+  //    &:after{
+  //
+  //      content: '\e80a'!important;
+  //      font-size: 4px;
+  //      transform-origin: center right;
+  //      transform: rotate(180deg) translateY(4px);
+  //    }
+  //  }
+  //}
+  //
+  //// My custom descending arrow
+  //[aria-sort="ascending"] {
+  //  .mat-sort-header-arrow {
+  //    &:after{
+  //
+  //      content: '\e80a'!important;
+  //      font-size: 4px;
+  //      transform-origin: center left;
+  //      transform: rotate(0deg) translateY(4px) translateX(.5em);
+  //    }
+  //  }
+  //}
+}
+
+//.cdk-overlay-pane {
+//  min-height: auto!important;
+//}

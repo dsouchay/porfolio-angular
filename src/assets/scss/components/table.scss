@@ -1,0 +1,35 @@
+@use '../abstratcs' as *;
+[role=afg-modules]{
+  .afg-table{
+    width: 100%;
+    &-responsive{
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    thead{
+      tr{
+
+      }
+    }
+    tbody{
+      tr{
+        th,
+        td:first-child{
+          font-size: rem(14);
+          color: var(--color-black-400);
+          text-align: left;
+          border-bottom: 1px solid var(--color-gray-100);
+        }
+        td{
+          font-size: rem(14);
+          text-align: right;
+          padding: rem(6) rem(9);
+          color: var(--color-black);
+          border-bottom: 1px solid var(--color-gray-100);
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,72 @@
+@use '../abstratcs' as *;
+[role=afg-modules]{
+  .afg-tab-material,
+  .tab-material{
+    --border-radius: 8px;
+    font-family: var(--font-family-ibm);
+    .mat-tab-header{
+      border-bottom: 0;
+    }
+    .mat-tab-label{
+      height: auto;
+      padding: 0 rem(5) rem(6) rem(5);
+      min-width: auto;
+      font-size: rem(16);
+      color: var(--color-black-400);
+      margin-right: rem(24);
+      opacity: 1;
+      &-active{
+        font-weight: var(--font-weight-bold);
+        color: var(--color-black);
+      }
+    }
+    .mat-tab-body{
+      padding-top: rem(16);
+      height: 100%;
+      &-content{
+        overflow: hidden;
+      }
+    }
+    .mat-ink-bar{
+      background: var(--color-primary-800);
+    }
+  }
+
+  .afg-tab-material-pills{
+    font-family: var(--font-family-ibm);
+    .mat-tab-header{
+      border-bottom: 0;
+    }
+    .mat-tab-list{
+      border-radius: var(--border-radius);
+      background: var(--color-gray-100);
+    }
+    .mat-tab-label{
+      opacity: 1;
+      max-height: rem(24);
+      height: auto;
+      padding: rem(15) rem(10);
+      color: var(--color-black-200);
+      font-size: rem(16);
+      min-width: auto;
+      flex: 1;
+      &-active{
+        color: var(--color-white);
+        background: var(--color-primary-800);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.04);
+      }
+    }
+
+    .mat-tab-body{
+      padding-top: rem(16);
+    }
+
+    .mat-ink-bar{
+      background: none;
+    }
+  }
+}
+
+
+

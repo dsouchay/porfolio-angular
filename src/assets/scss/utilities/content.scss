@@ -1,0 +1,208 @@
+@use '../abstratcs' as *;
+
+[role=afg-modules]{
+  .afg-space{
+    margin-bottom: rem(20);
+  }
+
+  .afg-up, .up{
+    color: var(--color-success) !important;
+    &--bold{
+      font-weight: var(--font-weight-bold);
+    }
+    &--light{
+      font-size: small;
+    }
+    &--alt{
+      color: var(--gray-400) !important;
+    }
+  }
+
+  .afg-down, .down{
+    color: var(--color-danger) !important;
+    &--light{
+      font-size: small;
+    }
+  }
+  .afg-equal, .equal{
+    color: var(--color-primary-800) !important;
+  }
+
+  .afg-background-sliding{
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    span{
+      position: relative; z-index: 1;
+    }
+    &:after{
+      transform: scale(1.2);
+    }
+    &--up{
+      &:after{
+        @include background-slinding(var(--color-success));
+        @include background-sliding-animation();
+      }
+    }
+    &--down{
+      &:after{
+        @include background-slinding(var(--color-primary));
+        @include background-sliding-animation();
+      }
+    }
+    &--neutral{
+      &:after{
+        @include background-slinding(var(--color-warning));
+        @include background-sliding-animation();
+      }
+    }
+  }
+  .afg-text-overflow{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .afg-text-left{
+    text-align: left !important;
+  }
+
+  .afg-text-center{
+    text-align: center !important;
+  }
+  .afg-text-right{
+    text-align: right !important;
+  }
+
+  .afg-hide-mobile{
+    display: none;
+    @include breakpoint('md'){
+      display: block;
+    }
+  }
+
+  .afg-show-mobile{
+    @include breakpoint('md'){
+      display: none;
+    }
+  }
+
+  .afg-hidden{
+    visibility: hidden;
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .afg-info-data{
+    &__title{
+      font-size: rem(14);
+      text-transform: uppercase;
+      font-weight: var(--font-weight-regular);
+      margin-bottom: rem(2);
+      line-height: normal;
+      &--muted{
+        font-size: rem(12);
+        color: var(--color-black-600);
+        text-transform: initial;
+      }
+    }
+    &__biggest{
+      font-size: rem(16);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: rem(12);
+      display: inline-block;
+      &--alt{
+        font-size: rem(20);
+      }
+    }
+    &__list{
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      &-item{
+        font-size: rem(12);
+        &:not(:last-child){
+          &:after{
+            content: '•';
+            padding-left: rem(5);
+            padding-right: rem(5);
+            font-size: rem(11);
+            vertical-align: text-top;
+            font-weight: var(--font-weight-thin);
+          }
+        }
+        &--bolder {
+          font-weight: var(--font-weight-semibold);
+        }
+        .mat-icon{
+          height: rem(9);
+          width: rem(9);
+          margin-right: rem(2);
+        }
+      }
+    }
+  }
+
+  .afg-summary-data{
+    &__row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: rem(12) rem(24);
+      &:not(:last-child){
+        margin-bottom: rem(7);
+      }
+      &--spacing{
+        &:not(:last-child){
+          margin-bottom: rem(24);
+        }
+      }
+    }
+    &__col{}
+    &__label{
+      display: block;
+      font-size: rem(12);
+      color: var(--color-black-600);
+      white-space: nowrap;
+    }
+    &__value{
+      display: block;
+      font-size: rem(16);
+      &--bigger{
+        font-size: rem(20);
+        font-weight: var(--font-weight-semibold);
+      }
+    }
+    &__date{
+      font-size: rem(14);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+
+  .afg-info-menu{
+    margin-left: rem(10);
+    margin-right: rem(10);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &__name{
+      display: block;
+      font-size: rem(14);
+      color: var(--color-black);
+      white-space: nowrap;
+      font-weight: var(--font-weight-semibold);
+    }
+
+    &__subname {
+      color: var(--color-black-600);
+      font-size: rem(14);
+      text-transform: capitalize;
+    }
+  }
+}
+
+
+
+
+

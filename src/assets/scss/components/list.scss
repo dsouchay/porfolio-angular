@@ -1,0 +1,27 @@
+@use "../abstratcs" as *;
+
+[role=afg-modules]{
+  .afg-education-item{
+    padding: 0;
+    &+ .afg-education-item{
+      margin-top: 2rem;
+    }
+    &--body{
+      @media (min-width: 768px){
+        display: grid;
+        grid-template-columns: 25% 1fr;
+      }
+      &__title,
+      &__info{
+        padding: rem(16);
+      }
+      &__title{
+        background-color: $black-600;
+        color: $gray-500;
+        @include resetHPadding(0);
+        @include setHValue(color, $white);
+        @include setHValue(text-align, center);
+      }
+    }
+  }
+}

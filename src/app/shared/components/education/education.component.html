@@ -1,0 +1,29 @@
+<div class="afg-container">
+  <header>
+    <h2>Education</h2>
+  </header>
+  <section class="afg-education-wrapper">
+    <ng-container *ngFor="let education of vT$.educations">
+
+      <mat-card class="afg-education-item" observeVisibility [debounceTime]="300"  [threshold]="0.5" [delay]="500" (Emitter)="doAction($event)">
+        <mat-card-content class="afg-education-item--body">
+          <div class="afg-education-item--body__title">
+            <h4 class="afg-edication-item--body__title--period" [innerHTML]="education?.period"></h4>
+            <h3 class="afg-edication-item--body__title--titulation" [innerHTML]="education?.title"></h3>
+          </div>
+          <div class="afg-education-item--body__info">
+            <h4 class="afg-education-item--body__info--titulation-name" [innerHTML]="education?.info?.title"></h4>
+            <h3 class="afg-education-item--body__info--place" [innerHTML]="education?.info?.location"></h3>
+            <div class="afg-education-item--body__info--body">
+              <ul class="afg-original">
+                <ng-container *ngFor="let data of education?.info?.data">
+                  <li [innerHTML]="data"></li>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </section>
+</div>

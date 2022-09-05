@@ -1,0 +1,5 @@
+<mat-selection-list #shoes [multiple]="false" (selectionChange)="doAction({action: 'side-nav-select', value: $event})">
+  <mat-list-option *ngFor="let item of sideNavItems" [value]="item">
+    {{item.label}}
+  </mat-list-option>
+</mat-selection-list>

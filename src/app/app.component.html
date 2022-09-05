@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="afg-name">{{vT$.title|async}}</span>
+    <span class="example-spacer"></span>
+    <button
+      (click)="sidenav.toggle()"
+      mat-icon-button class="example-icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-selection-list #shoes [multiple]="false" (selectionChange)="doAction({action: 'side-nav-select', value: $event})">
+      <mat-list-option *ngFor="let item of sideNavItems" [value]="item">
+        <a [routerLink]="[ item.path ]">{{item.label}}</a>
+      </mat-list-option>
+    </mat-selection-list>
+    <router-outlet name="asidemenu"></router-outlet>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <header role="main-header">
+      <section class="main-header__content">
+        <div class="overlay"></div>
+        <main class="afg-container">
+          <button mat-raised-button color="yellow">Yellow</button>
+        </main>
+      </section>
+      <section class="main-header__buttonsheet">
+        <ng-container *ngFor="let item of (vT$.rrss|async)">
+          <a
+            href="{{item?.url}}" target="_blank"
+            mat-fab color="{{item?.color}}" class="mat-elevation-z"
+            matTooltip="{{item?.info}}" matTooltipPosition="above"
+          >
+            <mat-icon svgIcon="{{item?.icon}}" aria-hidden="false" aria-label="{{item?.icon}}"></mat-icon>
+          </a>
+        </ng-container>
+      </section>
+    </header>
+    <main role="main-content">
+      <router-outlet></router-outlet>
+    </main>
+    <footer role="main-footer">
+      <div class="afg-container afg-section">
+        &copy; {{vT$.footer.date|date:'yyyy'}} {{vT$.footer_text|async}}
+      </div>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

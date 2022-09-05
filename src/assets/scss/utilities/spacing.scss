@@ -1,0 +1,10 @@
+@use "../abstratcs" as *;
+[role=afg-modules]{
+  @include spacing-class();
+
+  @each $breakpoint, $width in $breakpoints-up {
+    @include breakpoint($breakpoint){
+      @include spacing-class($breakpoint);
+    }
+  }
+}

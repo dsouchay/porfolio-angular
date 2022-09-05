@@ -1,0 +1,24 @@
+<mat-card id="skill-card">
+  <mat-card-title>Skills</mat-card-title>
+  <mat-card-content>
+    <div class="grid grid__2col">
+      <ul class="afg-original">
+        <ng-container *ngFor="let skill of vT$.skills | arrayFilter:'mode':'fe'">
+          <ng-container *ngTemplateOutlet="SKILL_ITEM_TPL; context: {skill: skill}"></ng-container>
+        </ng-container>
+      </ul>
+      <ul class="afg-original">
+        <ng-container *ngFor="let skill of vT$.skills | arrayFilter:'mode':'be'">
+          <ng-container *ngTemplateOutlet="SKILL_ITEM_TPL; context: {skill: skill}"></ng-container>
+        </ng-container>
+      </ul>
+    </div>
+    <div>
+      Note: the percentage value takes care of the total personal capabilities (1-5).
+    </div>
+  </mat-card-content>
+</mat-card>
+<ng-template #SKILL_ITEM_TPL let-skill="skill">
+  <li observeVisibility [debounceTime]="300" [threshold]="0.5" [delay]="500" (Emitter)="doAction($event)" [attr.data-skill]="skill?.id">{{skill?.name}} <mat-progress-bar class="afg-bar" mode="determinate" [value]="skill?.showed|async"></mat-progress-bar></li>
+</ng-template>
+

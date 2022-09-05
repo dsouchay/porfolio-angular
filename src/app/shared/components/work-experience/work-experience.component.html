@@ -1,0 +1,22 @@
+<section class="afg-container">
+  <header>
+    <h2 class="afg-title-light">Work Experience</h2>
+  </header>
+  <div class="grid grid__2col grid__2col--even grid__2col--history">
+    <ng-container *ngFor="let wExperience of (vT$.experiences|async)">
+      <div class="grid__2col--history__cell">
+        <section role="calendar">
+          <main>
+            <h5 [innerHTML]="wExperience?.period"></h5>
+          </main>
+        </section>
+        <h3 [innerHTML]="wExperience?.company"></h3>
+        <section>
+          <ng-container *ngFor="let item of wExperience?.info">
+            <p [innerHTML]="item"></p>
+          </ng-container>
+        </section>
+      </div>
+    </ng-container>
+  </div>
+</section>

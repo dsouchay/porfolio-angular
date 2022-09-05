@@ -1,0 +1,8 @@
+@use '../abstratcs' as *;
+[role=afg-modules]{
+  .map-points-info-html{
+    .afg-card.afg-card--inline{
+      cursor: pointer;
+    }
+  }
+}

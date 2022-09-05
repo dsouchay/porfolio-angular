@@ -1,0 +1,52 @@
+@use "../abstratcs" as *;
+
+[role=afg-modules]{
+  .afg-pagination{
+    margin-top: rem(24);
+    display: flex;
+    justify-content: center;
+    li{
+      max-height: rem(32);
+      &:not(:last-child){
+        margin-right: rem(8);
+      }
+    }
+    &__paginate-button{
+      cursor: pointer;
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      padding: rem(6) rem(10.8);
+      font-size: rem(14);
+      .mat-icon{
+        width: rem(14);
+        height: rem(14);
+      }
+    }
+    &__active{
+      .afg-pagination__paginate-button{
+        color: var(--color-primary-800);
+        border: 1px solid var(--color-primary-800);
+        font-weight: var(--font-weight-semibold);
+      }
+
+    }
+    &__disabled{
+      .afg-pagination__paginate-button{
+        color: var(--color-gray-200);
+        pointer-events: none;
+      }
+    }
+    &__ellipsis{
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      color: var(--color-gray-200);
+      max-height: rem(32);
+      .mat-icon{
+        height: rem(30);
+        width: rem(19);
+      }
+    }
+
+  }
+}

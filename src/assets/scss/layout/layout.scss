@@ -1,0 +1,126 @@
+@use '../abstratcs' as *;
+app-root{
+  position: relative; display: block;
+}
+[role=afg-modules]{
+  [role=main-header]{
+    position: relative;
+    display: flex; flex-direction: column;
+    min-height: 80vh;
+    .main-header{
+      &__content{
+        display: flex; flex-direction: column;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
+        min-height: 80vh;
+
+        background: url('../../images/main-jump.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        animation: cpath 25s infinite ease-in-out;
+      }
+      &__buttonsheet{
+        overflow: hidden;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        [mat-fab]{
+          transform-origin: 50% 50%;
+          animation: moving 20s infinite ease-in;
+          &:nth-of-type(2){
+            animation-delay: 2s;
+          }
+          &:nth-of-type(3){
+            animation-delay: 4s;
+          }
+        }
+      }
+    }
+    .overlay{
+      position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+      z-index: 0;
+      @include degradado($yellow, $redAlert);
+
+      filter: brightness(0.35) hue-rotate(0deg);
+      opacity: 0.75;
+      animation: hue 20s infinite ease-in-out;
+    }
+    main.afg-container{
+      position: relative; flex-grow: 1;
+      display: flex; color: $white; justify-content: center; align-items: center;
+    }
+
+
+
+
+
+    mat-toolbar{
+      z-index: 10;
+      position: relative;
+      background-color: transparent;
+    }
+
+  }
+  mat-sidenav-container{
+    .mat-drawer-inner-container{
+      @include degradado($gray-500, $gray-100);
+    }
+  }
+  [role=main-content]{
+    padding-bottom: 2rem;
+    .afg-section{
+      padding: 2rem 0;
+      scroll-margin-top: rem(56);
+    }
+  }
+  [role=main-footer]{
+    .afg-section{
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+}
+@keyframes moving {
+  0%,50%,100%{
+    transform: translate(0px,0px) rotateZ(0deg);
+  }
+  12.5%{
+    transform: translate(2.5px,0px)  rotateZ(5deg);
+  }
+  25%{
+    transform: translate(5px,0px)  rotateZ(0deg);
+  }
+  37.5%{
+    transform: translate(2.5px,0px)  rotateZ(-5deg);
+  }
+  62.5%{
+    transform: translate(-2.5px,0px)  rotateZ(5deg);
+  }
+  75%{
+    transform: translate(-5px,0px)  rotateZ(0deg);
+  }
+  87.5%{
+    transform: translate(-2.5px,0px)  rotateZ(-5deg);
+  }
+}
+@keyframes cpath {
+  0%,100%{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 0% 100%);
+  }
+  50%{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 95%);
+  }
+}
+@keyframes hue {
+  0%{
+    filter: brightness(0.35) hue-rotate(0deg);
+  }
+  100%{
+    filter: brightness(0.35) hue-rotate(360deg);
+  }
+}

@@ -1,0 +1,63 @@
+@use '../abstratcs' as *;
+
+lib-afg-chart{
+  position: relative;
+  overflow: hidden;
+  @include breakpoint('md'){
+    min-width: map-get($breakpoints-up, 'xs');
+    max-width: 100%;
+  }
+  .afg-chart-container__buttons{
+    max-width: 100%;
+    flex-wrap: wrap;
+    @include breakpoint('md'){
+      flex-wrap: nowrap;
+    }
+  }
+}
+[role=afg-modules]{
+  .afg-highchart-container{
+    @include breakpoint('lg'){
+      height: 30.8rem;
+    }
+  }
+  .tooltip{
+    &__date{
+      font-size: 0.6rem;
+    }
+    &__name{
+      font-weight: var(--font-weight-bold);
+    }
+    &__value{
+      font-weight: var(--font-weight-bold);
+      font-size: 1.2rem;
+    }
+  }
+  lib-shared-advanced-chart-detail{
+    .highcharts-range-selector-group {
+      display: none;
+    }
+  }
+  lib-afg-components-generic-advanced-chart{
+    .chart-cont .highcharts-container .highcharts-toggle-toolbar{
+      &.highcharts-arrow-right:after{
+        content: 'Advanced options';
+      }
+      &.highcharts-arrow-left:after{
+        content: 'Advanced options';
+      }
+    }
+    @each $lang, $data in $langs {
+      &[lang=#{$lang}]{
+        .chart-cont .highcharts-container .highcharts-toggle-toolbar{
+          &.highcharts-arrow-right:after{
+            content: $data;
+          }
+          &.highcharts-arrow-left:after{
+            content: $data;
+          }
+        }
+      }
+    }
+  }
+}

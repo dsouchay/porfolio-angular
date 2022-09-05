@@ -1,0 +1,86 @@
+@use '../abstratcs' as *;
+[role=afg-modules]{
+  .afg-form__group{
+    &:not(:last-child){
+      margin-bottom: rem(24);
+    }
+    .mat-form-field{
+      width: 100%;
+      //input container
+      &-flex{
+        align-items: center;
+        padding: rem(12);
+        max-height: rem(48);
+        border-radius: rem(6);
+        border: 1px solid var(--color-gray-200);
+      }
+      &-wrapper{
+        padding-bottom: 0;
+      }
+      &-infix{
+        padding: 0.25em 0 0px 0;
+        min-width: 180px;
+        width: 100%;
+      }
+    }
+
+    //remove underline
+    .mat-form-field-underline{
+      width: 0;
+      &:before{
+        height: 0;
+      }
+    }
+
+    .mat-form-field-label{
+      color: var(--color-black-600);
+    }
+    .mat-input-element{
+      caret-color: var(--color-black);
+    }
+
+    .mat-focused{
+      .mat-form-field-flex{
+        border: 1px solid var(--color-primary-800);
+      }
+      .mat-form-field-label{
+        color: var(--color-black-600);
+      }
+    }
+
+    //select arrow focused
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+      color: var(--color-black-600);
+    }
+
+  }
+}
+
+//select styles
+.cdk-overlay-pane{
+  transform: translateX(-14px) translateY(0) !important;
+}
+
+.mat-select-panel {
+  margin-top: 25px;
+  min-width: calc(100% + 27px) !important;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+  color: var(--color-black);
+}
+
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option{
+  border-bottom: 1px solid var(--color-gray-300);
+}
+
+.mat-option{
+  padding: 0 rem(21) !important;
+  &.mat-active{
+    background: var(--color-gray-100);
+  }
+  &:hover:not(.mat-option-disabled),
+  &:focus:not(.mat-option-disabled){
+    background: var(--color-gray-100);
+  }
+}

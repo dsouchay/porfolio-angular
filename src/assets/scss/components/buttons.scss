@@ -1,0 +1,100 @@
+@use '../abstratcs' as *;
+
+[role=afg-modules]{
+  .afg-btn{
+    padding: rem(14) rem(24);
+    max-height: rem(48);
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: rem(15);
+    display: inline-block;
+    box-shadow: 0 1px 3px rgba(16, 21, 46, 0.12);
+    &.disabled,
+    &:disabled{
+      pointer-events: none;
+      opacity: .4;
+    }
+    &--primary{
+      background: var(--color-primary-800);
+      color: var(--color-white);
+      &:hover{
+        background: var(--color-primary);
+      }
+    }
+    &--secondary{
+      background: var(--color-primary-100);
+      border: 1px solid var(--color-primary-800);
+      color: var(--color-primary-800);
+      &:hover{
+        background: var(--color-primary-400);
+      }
+    }
+    &--tertiary{
+      background: var(--color-white);
+      border: 1px solid var(--color-black-200);
+      color: var(--color-black-600);
+      font-weight: var(--font-weight-regular);
+      &:hover{
+        background: var(--color-gray-100);
+      }
+    }
+    &--light{
+      background: var(--color-gray-100);
+      color: var(--color-black-600);
+      font-weight: var(--font-weight-regular);
+      &:hover{
+        background: var(--color-gray-200);
+      }
+    }
+    &--dark{
+      background: var(--color-black);
+      color: var(--color-white);
+      &:hover{
+        background: var(--color-black-800);
+      }
+    }
+    &--small{
+      padding: rem(10) rem(24);
+      max-height: rem(36);
+      font-size: rem(13);
+    }
+  }
+
+  .afg-button-menu{
+    border: none;
+    position: relative;
+    min-width: rem(32);
+    min-height: rem(26);
+    padding: rem(5);
+    &__item{
+      display: block;
+      background: var(--color-black);
+      height: 2px;
+      transition: all ease-in .125s;
+      &:not(:last-child){
+        margin-bottom: rem(5);
+      }
+    }
+    &--active{
+      .afg-button-menu__item{
+        //position: absolute;
+        transition: all ease-in .125s;
+        &:first-child,
+        &:last-child{
+          transform: rotateZ(45deg) translate(1px, 1px);
+          margin-bottom: 0;
+        }
+        &:nth-child(2){
+          opacity: 0;
+          margin-bottom: 0;
+        }
+        &:last-child{
+          transform: rotateZ(-45deg) translate(2px, -2px);
+        }
+        //afg-button-menu afg-button-menu--active
+      }
+    }
+  }
+}

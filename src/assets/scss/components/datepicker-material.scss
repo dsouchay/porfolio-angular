@@ -1,0 +1,23 @@
+@use '../abstratcs' as *;
+
+[role=afg-modules]{
+  .mat-datepicker-toggle-active{
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
+.mat-calendar-body-in-range:before{
+  background: #CBCBCB;
+}
+@media (hover: hover) {
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+    background-color: #CBCBCB !important;
+    color: #fff !important;
+    border-radius: 50%;
+  }
+}
+
+.mat-calendar-body-today,.mat-calendar-body-selected{
+  background-color: #000 !important;
+  color: #fff;
+}

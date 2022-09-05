@@ -1,0 +1,41 @@
+@use '../abstratcs' as *;
+[role=afg-modules]{
+  .afg-card{
+    width: 100%;
+    background: var(--color-white);
+    padding: rem(24);
+    position: relative;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-gray-200);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    &:not(:last-of-type){
+      margin-bottom: rem(24);
+    }
+    @include breakpoint('md'){
+      height: 100%;
+    }
+    &--smaller{
+      padding: rem(24) rem(12);
+    }
+
+    &--inline{
+      width: auto;
+      height: auto;
+      display: inline-block;
+      padding: rem(12);
+    }
+
+    &__title{
+      font-size: rem(14);
+      margin-bottom: rem(24);
+      line-height: 1;
+    }
+
+    &__header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-self: center;
+    }
+  }
+}

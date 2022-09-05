@@ -1,0 +1,24 @@
+[role=afg-modules]{
+  lib-afg-ticker-carousel{
+    afg-components-cells-intraday-chart-cell{
+      display: flex; justify-content: center; align-items: center;
+    }
+    &.afg-ticker__list{
+      display: initial;
+      lib-shared-carrousel-ticker{
+        min-width: 226.28125px;
+      }
+    }
+  }
+  lib-shared-carousel{
+    &.lib-shared-carousel{
+      display: initial;
+    }
+    .afg-info-data__title{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100px;
+      white-space: nowrap;
+    }
+  }
+}
